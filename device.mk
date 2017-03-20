@@ -124,6 +124,9 @@ PRODUCT_PACKAGES += \
     libcnefeatureconfig \
     services-ext
 
+PRODUCT_PACKAGES += \
+    android.hardware.graphics.composer@2.1-impl
+
 # Display
 PRODUCT_PACKAGES += \
     copybit.msm8994 \
