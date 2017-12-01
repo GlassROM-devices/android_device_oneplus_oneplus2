@@ -1,0 +1,41 @@
+Signer #1:
+
+Signature:
+
+Owner: EMAILADDRESS=www.anuprita804@gmail.com, CN=Android, OU=Android, O=Android, L=Mumbai, ST=Maharashtra, C=IN
+Issuer: EMAILADDRESS=www.anuprita804@gmail.com, CN=Android, OU=Android, O=Android, L=Mumbai, ST=Maharashtra, C=IN
+Serial number: bd3ee2b0deae7509
+Valid from: Thu Jun 29 19:30:25 CEST 2017 until: Mon Nov 14 18:30:25 CET 2044
+Certificate fingerprints:
+	 MD5:  E4:9D:7A:02:82:76:AC:1C:B6:AA:56:7C:98:73:CC:21
+	 SHA1: 1D:8C:94:07:A9:9A:E0:D0:81:19:B4:84:BE:1F:47:5D:38:78:D3:02
+	 SHA256: 97:65:20:3E:41:70:61:B5:A5:FD:C3:02:1B:9F:A5:28:46:47:0E:3F:E0:5D:D8:B4:74:C1:63:FF:09:8F:8E:0C
+Signature algorithm name: SHA256withRSA
+Subject Public Key Algorithm: 2048-bit RSA key
+Version: 3
+
+Extensions: 
+
+#1: ObjectId: 2.5.29.35 Criticality=false
+AuthorityKeyIdentifier [
+KeyIdentifier [
+0000: F5 20 D8 00 7B C6 09 AB   AF 09 12 4E 2C FD D4 6F  . .........N,..o
+0010: 0A 37 17 55                                        .7.U
+]
+]
+
+#2: ObjectId: 2.5.29.19 Criticality=true
+BasicConstraints:[
+  CA:true
+  PathLen:2147483647
+]
+
+#3: ObjectId: 2.5.29.14 Criticality=false
+SubjectKeyIdentifier [
+KeyIdentifier [
+0000: F5 20 D8 00 7B C6 09 AB   AF 09 12 4E 2C FD D4 6F  . .........N,..o
+0010: 0A 37 17 55                                        .7.U
+]
+]
+
+
