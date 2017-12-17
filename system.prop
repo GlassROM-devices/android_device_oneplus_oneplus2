@@ -126,6 +126,7 @@ mmp.enable.3g2=true
 # Get camera working with mm blobs
 media.stagefright.legacyencoder=true
 media.stagefright.less-secure=true
+persist.media.treble_omx=false
 
 # Selinux hardening
 ro.boot.selinux=enforcing
@@ -169,9 +170,6 @@ ro.ril.svdo=false
 ro.qc.sdk.sensors.gestures=true
 ro.qc.sdk.gestures.camera=false
 ro.qc.sdk.camera.facialproc=false
-
-# Storage
-ro.sys.sdcardfs=true
 
 # Tethering
 net.tethering.noprovisioning=true
