@@ -112,12 +112,9 @@ TARGET_HAS_LEGACY_CAMERA_HAL1 := true
 # Charger
 BOARD_CHARGER_DISABLE_INIT_BLANK := true
 
-# CM Hardware
-BOARD_HARDWARE_CLASS += $(PLATFORM_PATH)/cmhw
+# Lineage Hardware
+BOARD_HARDWARE_CLASS += $(PLATFORM_PATH)/lineagehw
 TARGET_TAP_TO_WAKE_NODE := "/proc/touchpanel/double_tap"
-
-# CNE and DPM
-TARGET_LDPRELOAD := libNimsWrap.so
 
 # Cpusets
 ENABLE_CPUSETS := true
@@ -180,9 +177,6 @@ BOARD_USES_QCOM_HARDWARE := true
 # SELinux
 include device/qcom/sepolicy/sepolicy.mk
 BOARD_SEPOLICY_DIRS += $(PLATFORM_PATH)/sepolicy
-
-# Sensors
-USE_SENSOR_MULTI_HAL := true
 
 # Time services
 BOARD_USES_QC_TIME_SERVICES := true

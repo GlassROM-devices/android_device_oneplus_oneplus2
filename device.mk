@@ -117,13 +117,6 @@ PRODUCT_PACKAGES += \
     libshim_ims-camera \
     sensors.hal.tof
 
-# Connectivity Engine support (CNE)
-PRODUCT_PACKAGES += \
-    cneapiclient \
-    com.quicinc.cne \
-    libcnefeatureconfig \
-    services-ext
-
 # Display
 PRODUCT_PACKAGES += \
     copybit.msm8994 \
@@ -242,12 +235,15 @@ PRODUCT_PACKAGES += \
 
 # RIL
 PRODUCT_PACKAGES += \
+    libcnefeatureconfig \
     librmnetctl \
     libxml2
 
 # Sensors
 PRODUCT_PACKAGES += \
-    sensors.msm8994 \
+    android.hardware.sensors@1.0-impl
+
+PRODUCT_PACKAGES += \
     sensors.ssc.wrapper
 
 # Weather providers
