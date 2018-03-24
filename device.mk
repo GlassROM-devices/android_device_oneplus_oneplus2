@@ -139,7 +139,10 @@ PRODUCT_PACKAGES += \
 
 # Fingerprint sensor
 PRODUCT_PACKAGES += \
-    fingerprintd
+    android.hardware.biometrics.fingerprint@2.0-service
+
+PRODUCT_PACKAGES += \
+    fingerprint.msm8994
 
 # For android_filesystem_config.h
 PRODUCT_PACKAGES += \
