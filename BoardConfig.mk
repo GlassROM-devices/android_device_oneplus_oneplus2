@@ -209,7 +209,7 @@ ifeq ($(HOST_OS),linux)
 endif
 
 # Recovery
-TARGET_RECOVERY_FSTAB := $(PLATFORM_PATH)/rootdir/etc/fstab.qcom
+TARGET_RECOVERY_FSTAB := $(PLATFORM_PATH)/rootdir/etc/recovery.fstab
 
 
 
