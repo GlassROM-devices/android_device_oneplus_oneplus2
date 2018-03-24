@@ -286,10 +286,17 @@ vendor/lib64/hw/gatekeeper.msm8994.so
 bin/loc_launcher
 etc/permissions/com.qti.location.sdk.xml
 etc/permissions/com.qualcomm.location.xml
+<<<<<<< HEAD
 framework/com.qti.location.sdk.jar
 -lib64/libloc_api_v02.so
 -lib64/libloc_ds_api.so
 -priv-app/com.qualcomm.location/com.qualcomm.location.apk
+=======
+framework/com.qti.location.sdk.jar|5f813d74715b42dc5175563cd5027269c5fe08fb
+-lib64/libloc_api_v02.so
+-lib64/libloc_ds_api.so
+-priv-app/com.qualcomm.location/com.qualcomm.location.apk|11c5e4aacb2e346645b9ab37f7f01d08a16e9297
+>>>>>>> 406bde06ccbda793afaf34800749c0604d397713
 vendor/lib64/hw/flp.default.so
 vendor/lib64/libalarmservice_jni.so
 vendor/lib64/libdataitems.so
