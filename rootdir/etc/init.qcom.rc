@@ -54,6 +54,8 @@ on fs
     restorecon_recursive /persist
 
 on init
+    export LD_PRELOAD libshim_atomic.so
+
     symlink /sdcard /storage/sdcard0
 
     # Set permissions for persist partition
