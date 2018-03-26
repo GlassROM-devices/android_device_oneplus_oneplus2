@@ -105,9 +105,10 @@ QCOM_BT_USE_BTNV := true
 
 # Camera
 TARGET_NEEDS_PLATFORM_TEXT_RELOCATIONS := true
+BOARD_QTI_CAMERA_32BIT_ONLY := true
 USE_DEVICE_SPECIFIC_CAMERA := true
 TARGET_USES_MEDIA_EXTENSIONS := true
-TARGET_HAS_LEGACY_CAMERA_HAL1 := true
+BOARD_BUILD_OP2_CAMERA := true
 
 # Charger
 BOARD_CHARGER_DISABLE_INIT_BLANK := true
@@ -117,12 +118,11 @@ BOARD_HARDWARE_CLASS += $(PLATFORM_PATH)/lineagehw
 TARGET_TAP_TO_WAKE_NODE := "/proc/touchpanel/double_tap"
 
 # Cpusets
-ENABLE_CPUSETS := true
 ENABLE_SCHEDBOOST := true
 ENABLE_SCHED_BOOST := true
 
 # Filesystem
-TARGET_ANDROID_FILESYSTEM_CONFIG_H := $(PLATFORM_PATH)/android_filesystem_config.h
+TARGET_FS_CONFIG_GEN := $(PLATFORM_PATH)/config.fs
 
 # GPS
 TARGET_NO_RPC := true
@@ -133,6 +133,7 @@ NUM_FRAMEBUFFER_SURFACE_BUFFERS := 3
 TARGET_USES_ION := true
 TARGET_USES_NEW_ION_API :=true
 TARGET_USES_C2D_COMPOSITION := true
+TARGET_USES_HWC2 := true
 USE_OPENGL_RENDERER := true
 
 MAX_EGL_CACHE_KEY_SIZE := 12*1024
@@ -142,6 +143,10 @@ HAVE_ADRENO_SOURCE := false
 OVERRIDE_RS_DRIVER := libRSDriver_adreno.so
 
 NUM_FRAMEBUFFER_SURFACE_BUFFERS := 3
+
+# HIDL
+DEVICE_MANIFEST_FILE := $(PLATFORM_PATH)/manifest.xml
+DEVICE_MATRIX_FILE := $(PLATFORM_PATH)/compatibility_matrix.xml
 
 # Include path
 TARGET_SPECIFIC_HEADER_PATH := $(PLATFORM_PATH)/include
@@ -168,18 +173,24 @@ TARGET_USERIMAGES_USE_EXT4 := true
 TARGET_USERIMAGES_USE_F2FS := true
 
 # Power
+TARGET_HAS_NO_WIFI_STATS := true
 TARGET_POWERHAL_SET_INTERACTIVE_EXT := $(PLATFORM_PATH)/power/power_ext.c
-TARGET_POWERHAL_VARIANT := qcom
 
 # QCOM hardware
 BOARD_USES_QCOM_HARDWARE := true
 
 # SELinux
 include device/qcom/sepolicy/sepolicy.mk
+include device/qcom/sepolicy/legacy-sepolicy.mk
 BOARD_SEPOLICY_DIRS += $(PLATFORM_PATH)/sepolicy
 
-# Time services
-BOARD_USES_QC_TIME_SERVICES := true
+# Shims
+TARGET_LD_SHIM_LIBS := \
+    /system/vendor/lib64/lib-imscamera.so|libshim_ims-camera.so \
+    /system/vendor/lib64/lib-imsvt.so|libshims_ims.so \
+    /system/vendor/lib64/libril-qc-qmi-1.so|rild_socket.so
+
+TARGET_LDPRELOAD := libshim_atomic.so
 
 # Wifi
 BOARD_HAS_QCOM_WLAN := true
@@ -192,24 +203,20 @@ TARGET_USES_WCNSS_CTRL := true
 TARGET_USES_QCOM_WCNSS_QMI := true
 WIFI_DRIVER_FW_PATH_AP := "ap"
 WIFI_DRIVER_FW_PATH_STA := "sta"
-WIFI_DRIVER_FW_PATH_P2P := "p2p"
 WPA_SUPPLICANT_VERSION := VER_0_8_X
-CONFIG_EAP_PROXY := qmi
-CONFIG_EAP_PROXY_DUAL_SIM := true
-CONFIG_EAP_PROXY_AKA_PRIME := true
-CONFIG_EAP_PROXY_MSM8994_TARGET := true
 
-# Enable dexpreopt to speed boot time
+# Dexpreopt
 ifeq ($(HOST_OS),linux)
-  ifeq ($(call match-word-in-list,$(TARGET_BUILD_VARIANT),user),true)
+  ifneq ($(TARGET_BUILD_VARIANT),eng)
     ifeq ($(WITH_DEXPREOPT),)
       WITH_DEXPREOPT := true
+      WITH_DEXPREOPT_BOOT_IMG_AND_SYSTEM_SERVER_ONLY := true
     endif
   endif
 endif
 
 # Recovery
-TARGET_RECOVERY_FSTAB := $(PLATFORM_PATH)/rootdir/etc/recovery.fstab
+TARGET_RECOVERY_FSTAB := $(PLATFORM_PATH)/rootdir/etc/fstab.qcom
 
 
 

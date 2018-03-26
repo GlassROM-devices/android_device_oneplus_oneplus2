@@ -1,4 +1,2 @@
-allow ueventd vfat:dir search;
-allow ueventd vfat:file { read open };
-allow ueventd stm_sensor:chr_file { create setattr };
-allow ueventd cam_sysfs:file getattr;
+# Allow firmware_file access to load Non-HLOS images
+r_dir_file(ueventd, firmware_file)

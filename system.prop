@@ -35,11 +35,25 @@ ro.bluetooth.emb_wp_mode=true
 ro.bluetooth.wipower=true
 
 # Camera
-persist.camera.HAL3.enabled=0
+persist.camera.HAL3.enabled=1
+camera.disable_zsl_mode=1
 persist.camera.cpp.duplication=false
 vidc.debug.perf.mode=2
 vidc.enc.dcvs.extra-buff-count=2
 persist.camera.eis.enable=1
+persist.camera.zsl.mode=0
+persist.camera.hal.debug.mask=0
+camera2.portability.force_api=1
+ro.camcorder.videoModes=true
+persist.camera.raw.format=16
+persist.camera.promode=true
+ro.config.hw_camera_hdr=true
+ro.config.hw_camera_bestShot=true
+persist.camera.tintless=enable
+persist.camera.4k2k.enable=1
+vidc.dec.120fps.enabled=1
+ro.media.enc.jpeg.quality=100
+ro.media.enc.hprof.vid.fps=60
 
 # CEC
 ro.hdmi.device_type=4
@@ -68,7 +82,6 @@ persist.dpm.feature=0
 persist.dbg.ims_volte_enable=1
 persist.dbg.volte_avail_ovr=1
 persist.dbg.vt_avail_ovr=0
-persist.data.iwlan.enable=true
 persist.dbg.wfc_avail_ovr=1
 persist.ims.volte=true
 persist.volte_enabled_by_hw=1
@@ -131,7 +144,7 @@ ro.boot.selinux=enforcing
 
 # QC vendor extension
 ro.vendor.extension_library=libqti-perfd-client.so
-ro.frp.pst=/dev/block/bootdevice/by-name/config
+ro.frp.pst=/dev/block/platform/soc.0/f9824900.sdhci/by-name/config
 drm.service.enabled=true
 
 # haruhi props
