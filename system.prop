@@ -204,3 +204,7 @@ ro.debuggable=0
 ro.secure=1
 ro.boot.secboot=enabled
 ro.boot.enable_dm_verity=1
+
+# Privileged permission whitlisting
+#  TODO: enforce
+ro.control_privapp_permission=log
