@@ -206,5 +206,4 @@ ro.boot.secboot=enabled
 ro.boot.enable_dm_verity=1
 
 # Privileged permission whitlisting
-#  TODO: enforce
-ro.control_privapp_permission=log
+ro.control_privapp_permission=enforce

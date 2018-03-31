@@ -341,9 +341,8 @@ PRODUCT_PACKAGES += \
     wpa_supplicant.conf
 
 # Privileged permission whitelisting
-# TODO: generate the permissions file
-#PRODUCT_COPY_FILES += \
-#    $(LOCAL_PATH)/permissions/privileged-whitelist-glassrom.xml:system/etc/permissions/privileged-whitelist-glassrom.xml
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/permissions/privapp-permissions-glassrom.xml:system/etc/permissions/privapp-permissions-glassrom.xml
 
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/wifi/p2p_supplicant_overlay.conf:system/etc/wifi/p2p_supplicant_overlay.conf \
