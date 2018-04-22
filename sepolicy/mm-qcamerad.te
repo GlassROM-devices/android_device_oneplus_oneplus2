@@ -11,4 +11,5 @@ allow mm-qcamerad sensors_socket:sock_file read;
 allow mm-qcamerad self:tcp_socket { create bind setopt };
 allow mm-qcamerad sysfs:file { read open write };
 allow mm-qcamerad sysfs_camera:dir { search };
-allow mm-qcamerad sysfs_camera:file { open read };
+allow mm-qcamerad sysfs_camera:file { open read write };
+allow mm-qcamerad sysfs_camera:lnk_file read;
