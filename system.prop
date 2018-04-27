@@ -78,7 +78,7 @@ ro.data.large_tcp_window_size=true
 # Enahnced 4g tweak
 persist.dbg.ims_volte_enable=1
 persist.dbg.volte_avail_ovr=1
-persist.dbg.vt_avail_ovr=0
+persist.dbg.vt_avail_ovr=1
 persist.dbg.wfc_avail_ovr=1
 persist.ims.volte=true
 persist.volte_enabled_by_hw=1
@@ -90,6 +90,8 @@ persist.radio.ROTATION_ENABLE=1
 persist.radio.VT_ENABLE=1
 persist.radio.VT_HYBRID_ENABLE=1
 persist.radio.VT_USE_MDM_TIME=0
+persist.radio.vrte_logic=1
+persist.radio.domain.ps=true
 
 # Silence debug
 persist.ims.enableADBLogs=0
