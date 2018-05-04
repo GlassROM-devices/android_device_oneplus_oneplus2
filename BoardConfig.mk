@@ -30,6 +30,9 @@ PLATFORM_PATH := device/oneplus/oneplus2
 
 BOARD_VENDOR := oneplus
 
+# Incremental OTA hack
+TARGET_RELEASETOOLS_EXTENSIONS := device/oneplus/oneplus2
+
 # Assertions
 TARGET_BOARD_INFO_FILE ?= $(PLATFORM_PATH)/board-info.txt
 
