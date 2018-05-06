@@ -36,12 +36,13 @@ ro.bluetooth.wipower=true
 
 # Camera
 persist.camera.HAL3.enabled=1
-camera.disable_zsl_mode=1
+camera.disable_zsl_mode=0
 persist.camera.cpp.duplication=false
 vidc.debug.perf.mode=2
 vidc.enc.dcvs.extra-buff-count=2
 persist.camera.eis.enable=1
-persist.camera.zsl.mode=0
+persist.camera.is_type=4
+persist.camera.zsl.mode=1
 persist.camera.hal.debug.mask=0
 camera2.portability.force_api=1
 ro.camcorder.videoModes=true
@@ -141,9 +142,8 @@ media.stagefright.enable-qcp=true
 media.stagefright.enable-scan=true
 media.stagefright.log-uri=1
 mmp.enable.3g2=true
-# Get camera working with mm blobs
-media.stagefright.legacyencoder=true
-media.stagefright.less-secure=true
+
+# Default OMX service to non-treble
 persist.media.treble_omx=false
 
 # Selinux hardening
@@ -212,5 +212,5 @@ ro.secure=1
 ro.boot.secboot=enabled
 ro.boot.enable_dm_verity=1
 
-# Privileged permission whitlisting
+# Privileged permission whitelisting
 ro.control_privapp_permission=enforce
