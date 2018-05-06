@@ -214,6 +214,7 @@ ro.boot.enable_dm_verity=1
 
 # Disable rescue party feature
 persist.sys.enable_rescue=0
+persist.sys.disable_rescue=true
 
 # Privileged permission whitelisting
 ro.control_privapp_permission=enforce
