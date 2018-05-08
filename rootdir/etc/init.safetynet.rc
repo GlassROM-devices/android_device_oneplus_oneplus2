@@ -1,3 +1,9 @@
+on init
+verity_load_state
+on early-boot
+verity_update_state
+on verity-logging
+exec u:r:slideshow:s0 -- /sbin/slideshow warning/verity_red_1 warning/verity_red_2
 on boot
 setprop ro.boot.verifiedbootstate green
 setprop ro.boot.flash.locked 1

@@ -353,6 +353,13 @@ PRODUCT_PACKAGES += \
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/permissions/privapp-permissions-glassrom.xml:system/etc/permissions/privapp-permissions-glassrom.xml
 
+# setup dm-verity configs
+PRODUCT_SYSTEM_VERITY_PARTITION := /dev/block/platform/soc.0/f9824900.sdhci/by-name/system
+$(call inherit-product, build/target/product/verity.mk)
+PRODUCT_PACKAGES += \
+    slideshow \
+    verity_warning_images
+
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/wifi/p2p_supplicant_overlay.conf:system/etc/wifi/p2p_supplicant_overlay.conf \
     $(LOCAL_PATH)/wifi/wpa_supplicant_overlay.conf:system/etc/wifi/wpa_supplicant_overlay.conf \
