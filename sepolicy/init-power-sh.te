@@ -18,6 +18,10 @@ allow init-power-sh sysfs_msm_perf:file { getattr w_file_perms };
 allow init-power-sh sysfs_msm_power:dir search;
 allow init-power-sh sysfs_msm_power:file w_file_perms;
 
+allow init-power-sh file_contexts_file:file { getattr open read };
+allow init-power-sh sysfs_cpu_boost:dir search;
+allow init-power-sh sysfs_cpu_boost:file { open write };
+
 # interactive files in /sys receive the default sysfs context when created
 # after the restorecon of /sys/. Allow init-power-sh to restorecon sysfs files
 # and symlinks to sysfs_devices_system_cpu

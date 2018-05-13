@@ -1,3 +1,11 @@
 allow qti_init_shell kmsg_device:chr_file { write open };
 allow qti_init_shell proc_net:dir { open read };
 allow qti_init_shell sysfs:file write;
+allow qti_init_shell file_contexts_file:file { getattr open read };
+allow qti_init_shell proc_kernel_sched:file { open write };
+
+allow qti_init_shell vfat:dir { open read search };
+allow qti_init_shell vfat:file { getattr open read };
+
+allow qti_init_shell shell_exec:file { entrypoint getattr read };
+allow qti_init_shell toolbox_exec:file { execute execute_no_trans getattr open read };
