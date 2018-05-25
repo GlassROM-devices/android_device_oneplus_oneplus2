@@ -152,7 +152,9 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     android.hardware.drm@1.0-impl \
     android.hardware.drm@1.0-service \
-    android.hardware.drm@1.0-service.widevine
+    android.hardware.drm@1.0-service.widevine \
+    android.hardware.drm@1.1-service.clearkey \
+    move_widevine_data.sh
 
 # Display
 PRODUCT_PACKAGES += \
@@ -298,7 +300,8 @@ PRODUCT_PACKAGES += \
 
 # RenderScript
 PRODUCT_PACKAGES += \
-    android.hardware.renderscript@1.0-impl
+    android.hardware.renderscript@1.0-impl \
+    android.hardware.renderscript@1.0-service
 
 # RIL
 PRODUCT_PACKAGES += \
@@ -340,11 +343,14 @@ PRODUCT_PACKAGES += \
 
 # VR
 PRODUCT_PACKAGES += \
-    vr.msm8994
+    vr.msm8994 \
+    android.hardware.vr@1.0-impl \
+    android.hardware.vr@1.0-service
 
 # Vibrator
 PRODUCT_PACKAGES += \
-    android.hardware.vibrator@1.0-impl
+    android.hardware.vibrator@1.0-impl \
+    android.hardware.vibrator@1.0-service
 
 # WiFi
 PRODUCT_PACKAGES += \
@@ -374,6 +380,7 @@ PRODUCT_COPY_FILES += \
 GAPPS_VARIANT := stock
 GAPPS_FORCE_PACKAGE_OVERRIDES := true
 GAPPS_BYPASS_PACKAGE_OVERRIDES := Music2
+GAPPS_EXCLUDED_PACKAGES := GoogleCamera
 $(call inherit-product, vendor/opengapps/build/opengapps-packages.mk)
 
 # setup dm-verity configs
