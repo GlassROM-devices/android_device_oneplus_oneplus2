@@ -14,3 +14,5 @@ allow mm-qcamerad sysfs:file { read open write };
 allow mm-qcamerad sysfs_camera:dir { search };
 allow mm-qcamerad sysfs_camera:file { open read write };
 allow mm-qcamerad sysfs_camera:lnk_file read;
+binder_call(mm-qcamerad, servicemanager);
+binder_use(mm-qcamerad);
