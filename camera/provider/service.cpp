@@ -15,7 +15,7 @@
  * limitations under the License.
  */
 
-#define LOG_TAG "android.hardware.camera.provider@2.4-service.oneplus3"
+#define LOG_TAG "android.hardware.camera.provider@2.4-service.oneplus2"
 
 #include <android/hardware/camera/provider/2.4/ICameraProvider.h>
 #include <hidl/LegacySupport.h>
