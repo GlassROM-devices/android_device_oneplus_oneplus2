@@ -42,3 +42,6 @@
 # RIL
 /data/oemnvitems(/.*)?                                                  u:object_r:nv_data_file:s0
 /sys/devices/soc\.0/6200000\.qcom,nvbackup_sharedmem/uio/uio4(/.*)?     u:object_r:sysfs_nv:s0
+
+# Camera provider
+/vendor/bin/hw/android\.hardware\.camera\.provider@2\.4-service.oneplus2          u:object_r:hal_camera_default_exec:s0
