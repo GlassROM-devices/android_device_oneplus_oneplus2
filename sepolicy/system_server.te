@@ -3,3 +3,4 @@ allow system_server pps_socket:sock_file write;
 allow system_server unlabeled:file unlink;
 allow system_server proc_touchpanel:file { getattr open read write };
 allow system_server proc_touchpanel:dir search;
+allow system_server diag_device:chr_file { open read write };

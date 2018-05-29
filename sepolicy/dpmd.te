@@ -9,4 +9,6 @@ allow dpmd socket_device:sock_file { create setattr };
 allow dpmd self:capability { dac_override fsetid };
 allow dpmd self:udp_socket ioctl;
 allow dpmd serialno_prop:property_service set;
+allow dpmd diag_device:chr_file { open read write };
 dontaudit dpmd self:capability sys_ptrace;
+dontaudit dpmd dpmd:socket { ioctl };

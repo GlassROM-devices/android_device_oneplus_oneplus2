@@ -1,0 +1,8 @@
+# Chrome misbehaving
+dontaudit untrusted_app proc:file { open read };
+
+# Apps should NOT read or open rootfs
+dontaudit untrusted_app rootfs:dir { open read };
+
+# Discord misbehaving
+dontaudit untrusted_app proc:file read;
