@@ -7,10 +7,6 @@ function write() {
     echo -n $2 > $1
 }
 
-function copy() {
-    cat $1 > $2
-}
-
 function get-set-forall() {
     for f in $1 ; do
         cat $f
@@ -42,9 +38,6 @@ write /sys/devices/system/cpu/cpu7/online 0
 # Restorecon again to give new files the correct label.
 restorecon -R /sys/devices/system/cpu
 
-# Best effort limiting for first time boot if msm_performance module is absent
-write /sys/devices/system/cpu/cpu4/cpufreq/scaling_max_freq 960000
-
 # some files in /sysmodule/msm_performance/parameters are created after the restorecon of
 # /sys/. These files receive the default label "sysfs".
 restorecon -R /sys/module/msm_performance/parameters
@@ -56,9 +49,6 @@ restorecon -R /sys/devices/system/cpu # must restore after interactive
 # configure governor settings for big cluster
 write /sys/devices/system/cpu/cpu4/cpufreq/scaling_governor sched
 restorecon -R /sys/devices/system/cpu # must restore after interactive
-
-# restore A57's max
-copy /sys/devices/system/cpu/cpu4/cpufreq/cpuinfo_max_freq /sys/devices/system/cpu/cpu4/cpufreq/scaling_max_freq
 
 # plugin remaining A57s
 write /sys/devices/system/cpu/cpu4/online 1
