@@ -5,3 +5,4 @@ allow perfd hal_power_default:process signull;
 allow perfd mediacodec:process signull;
 allow perfd surfaceflinger:process signull;
 allow perfd sysfs_memory:dir { open search read write };
+allow perfd sysfs_memory:file { open read write };
