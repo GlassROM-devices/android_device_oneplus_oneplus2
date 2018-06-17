@@ -153,8 +153,7 @@ PRODUCT_PACKAGES += \
     android.hardware.drm@1.0-impl \
     android.hardware.drm@1.0-service \
     android.hardware.drm@1.0-service.widevine \
-    android.hardware.drm@1.1-service.clearkey \
-    move_widevine_data.sh
+    android.hardware.drm@1.1-service.clearkey
 
 # Display
 PRODUCT_PACKAGES += \
@@ -300,8 +299,7 @@ PRODUCT_PACKAGES += \
 
 # RenderScript
 PRODUCT_PACKAGES += \
-    android.hardware.renderscript@1.0-impl \
-    android.hardware.renderscript@1.0-service
+    android.hardware.renderscript@1.0-impl
 
 # RIL
 PRODUCT_PACKAGES += \
