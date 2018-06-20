@@ -85,9 +85,6 @@ write /sys/class/kgsl/kgsl-3d0/default_pwrlevel 5
 write /sys/class/devfreq/fdb00000.qcom,kgsl-3d0/governor msm-adreno-tz
 
 # re-enable thermal and BCL hotplug
-write /sys/module/msm_thermal/core_control/enabled 1
-write /sys/module/msm_thermal/vdd_restriction/enabled 1
-write /sys/module/msm_thermal/parameters/enabled 1
 get-set-forall /sys/devices/soc.0/qcom,bcl.*/mode disable
 get-set-forall /sys/devices/soc.0/qcom,bcl.*/hotplug_mask $bcl_hotplug_mask
 get-set-forall /sys/devices/soc.0/qcom,bcl.*/hotplug_soc_mask $bcl_hotplug_soc_mask
