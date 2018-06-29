@@ -137,7 +137,6 @@ PRODUCT_PACKAGES += \
     libqomx_core \
     libshim_atomic \
     libshim_camera \
-    libshim_ims-camera \
     sensors.hal.tof \
     Snap
 
@@ -332,6 +331,10 @@ PRODUCT_PACKAGES += \
     init.tfa.sh \
     tinyplay
 
+# TextClassifier
+PRODUCT_PACKAGES += \
+    textclassifier.smartselection.bundle1
+
 # USB
 PRODUCT_PACKAGES += \
     android.hardware.usb@1.0-service.op2
@@ -353,6 +356,10 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     android.hardware.vibrator@1.0-impl \
     android.hardware.vibrator@1.0-service
+
+# Vendor security patch level
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.lineage.build.vendor_security_patch=2017-10-01
 
 # WiFi
 PRODUCT_PACKAGES += \
