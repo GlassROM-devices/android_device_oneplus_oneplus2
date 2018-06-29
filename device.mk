@@ -394,6 +394,7 @@ $(call inherit-product, vendor/opengapps/build/opengapps-packages.mk)
 
 # setup dm-verity configs
 PRODUCT_SYSTEM_VERITY_PARTITION := /dev/block/platform/soc.0/f9824900.sdhci/by-name/system
+PRODUCT_VENDOR_VERITY_PARTITION := /dev/block/platform/soc.0/f9824900.sdhci/by-name/cache
 $(call inherit-product, build/target/product/verity.mk)
 PRODUCT_PACKAGES += \
     slideshow \
