@@ -6,7 +6,7 @@
 /(vendor|system/vendor)/bin/init\.tfa\.sh                               u:object_r:init_tfa_exec:s0
 
 # Bluetooth
-(vendor|system/vendor)/bin/init\.qcom\.bt\.sh                           u:object_r:bluetooth_loader_exec:s0
+/(vendor|system/vendor)/bin/init\.qcom\.bt\.sh                           u:object_r:bluetooth_loader_exec:s0
 /sys/devices/bt_qca6174\.85(/.*)?                                       u:object_r:sysfs_bluetooth:s0
 
 # Camera
@@ -34,7 +34,7 @@
 /data/fpc(/.*)?                                                         u:object_r:fpc_data_file:s0
 
 # HALs
-/system/vendor/bin/hw/android\.hardware\.usb@1\.0-service\.op2          u:object_r:hal_usb_default_exec:s0
+/(vendor|system/vendor)/bin/hw/android\.hardware\.usb@1\.0-service\.op2          u:object_r:hal_usb_default_exec:s0
 
 # IPACM
 /system/bin/ipacm                                                       u:object_r:ipacm_exec:s0
