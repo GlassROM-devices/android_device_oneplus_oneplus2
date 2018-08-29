@@ -46,6 +46,13 @@ on early-init
     write /sys/kernel/mm/ksm/sleep_millisecs 500
     write /sys/kernel/mm/ksm/run 1
 
+# Encryption HAX
+on property:sys.keymaster.loaded=true
+    setprop vendor.sys.keymaster.loaded true
+
+on property:sys.listeners.registered=true
+    setprop vendor.sys.keymaster.loaded true
+
 on fs
     wait /dev/block/platform/soc.0/${ro.boot.bootdevice}
     symlink /dev/block/platform/soc.0/${ro.boot.bootdevice} /dev/block/bootdevice
