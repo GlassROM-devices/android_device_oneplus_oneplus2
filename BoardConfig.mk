@@ -77,7 +77,9 @@ WITH_DEXPREOPT := true
 WITH_DEXPREOPT_PIC := true
 DONT_DEXPREOPT_PREBUILTS := true
 
+# Encryption
 TARGET_HW_DISK_ENCRYPTION := true
+TARGET_SWV8_DISK_ENCRYPTION := true
 
 # ANT+
 BOARD_ANT_WIRELESS_DEVICE := "qualcomm-uart"
@@ -214,6 +216,10 @@ PRODUCT_ENFORCE_RRO_TARGETS := \
    CarrierConfig \
    Mms \
    CellBroadcastReceiver
+
+# RIL
+PROTOBUF_SUPPORTED := true
+TARGET_RIL_VARIANT := caf
 
 # SELinux
 include device/qcom/sepolicy/sepolicy.mk
