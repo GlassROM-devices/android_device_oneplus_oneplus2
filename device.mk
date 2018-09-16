@@ -238,15 +238,10 @@ PRODUCT_COPY_FILES += \
 
 # Keymaster
 PRODUCT_PACKAGES += \
-<<<<<<< HEAD
     android.hardware.keymaster@3.0-impl \
     android.hardware.keymaster@3.0-service
 
-=======
-    android.hardware.keymaster@3.0-impl
-
 # Lights
->>>>>>> 4c0f56ac0d509c9f7fc1bb66a3b95281210b2d2c
 PRODUCT_PACKAGES += \
     android.hardware.light@2.0-service.oneplus2
 
