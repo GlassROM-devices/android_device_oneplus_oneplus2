@@ -90,20 +90,11 @@ persist.env.fastdorm.enabled=true
 persist.sys.dpmd.nsrm=3
 
 # Dex2oat limits
-dalvik.vm.boot-dex2oat-threads=8
-dalvik.vm.dex2oat-threads=8
-dalvik.vm.image-dex2oat-threads=8
+dalvik.vm.boot-dex2oat-threads=4
+dalvik.vm.dex2oat-threads=2
+dalvik.vm.image-dex2oat-threads=4
 dalvik.vm.dex2oat-filter=everything
 dalvik.vm.image-dex2oat-filter=everything
-pm.dexopt.install=everything
-pm.dexopt.bg-dexopt=everything
-pm.dexopt.ab-ota=everything
-pm.dexopt.nsys-library=everything
-pm.dexopt.shared-apk=everything
-pm.dexopt.forced-dexopt=everything
-pm.dexopt.core-app=everything
-pm.dexopt.first-boot=everything
-pm.dexopt.boot=everything
 
 # GPS
 persist.gps.qc_nlp_in_use=1
