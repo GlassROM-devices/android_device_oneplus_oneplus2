@@ -17,7 +17,7 @@ function get-set-forall() {
 ################################################################################
 
 # disable thermal bcl hotplug to switch governor
-write /sys/module/msm_thermal/core_control/enabled 0
+write /sys/module/msm_thermal/core_control/enabled 1
 get-set-forall /sys/devices/soc.0/qcom,bcl.*/mode disable
 bcl_hotplug_mask=`get-set-forall /sys/devices/soc.0/qcom,bcl.*/hotplug_mask 0`
 bcl_hotplug_soc_mask=`get-set-forall /sys/devices/soc.0/qcom,bcl.*/hotplug_soc_mask 0`
