@@ -390,7 +390,6 @@ PRODUCT_COPY_FILES += \
 # Opengapps
 GAPPS_VARIANT := stock
 GAPPS_FORCE_PACKAGE_OVERRIDES := true
-GAPPS_BYPASS_PACKAGE_OVERRIDES := Music2
 GAPPS_EXCLUDED_PACKAGES := GoogleCamera
 $(call inherit-product, vendor/opengapps/build/opengapps-packages.mk)
 
