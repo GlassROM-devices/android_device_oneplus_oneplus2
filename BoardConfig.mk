@@ -142,10 +142,6 @@ TARGET_VENDOR_PROP := $(LOCAL_PATH)/system.prop
 ENABLE_SCHEDBOOST := true
 ENABLE_SCHED_BOOST := true
 
-# CNE and DPM
-TARGET_LDPRELOAD := libNimsWrap.so
-BOARD_USES_QCNE := true
-
 # Filesystem
 TARGET_FS_CONFIG_GEN := $(PLATFORM_PATH)/config.fs
 
