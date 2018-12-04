@@ -28,7 +28,7 @@ service charger /charger
     writepid /dev/cpuset/system-background/tasks
 
 on property:dev.bootcomplete=1
-    setprop sys.io.scheduler "cfq"
+    setprop sys.io.scheduler "noop"
 
 # Enable CPU retention
 write /sys/module/lpm_levels/system/a53/cpu0/retention/idle_enabled 1
