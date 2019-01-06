@@ -139,13 +139,6 @@ PRODUCT_PACKAGES += \
     sensors.hal.tof \
     Snap
 
-# Connectivity Engine support (CNE)
-PRODUCT_PACKAGES += \
-    cneapiclient \
-    com.quicinc.cne \
-    libcnefeatureconfig \
-    services-ext
-
 # DRM
 PRODUCT_PACKAGES += \
     android.hardware.drm@1.0-impl \
@@ -305,6 +298,7 @@ PRODUCT_PACKAGES += \
 
 # RIL
 PRODUCT_PACKAGES += \
+    libcnefeatureconfig \
     librmnetctl \
     libxml2 \
     rild_socket
@@ -390,7 +384,6 @@ PRODUCT_COPY_FILES += \
 # Opengapps
 GAPPS_VARIANT := stock
 GAPPS_FORCE_PACKAGE_OVERRIDES := true
-GAPPS_BYPASS_PACKAGE_OVERRIDES := Music2
 GAPPS_EXCLUDED_PACKAGES := GoogleCamera
 $(call inherit-product, vendor/opengapps/build/opengapps-packages.mk)
 

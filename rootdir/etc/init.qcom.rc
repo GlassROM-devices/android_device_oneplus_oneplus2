@@ -379,20 +379,6 @@ on post-fs-data
     mkdir /data/vendor/wifi/wpa 0770 wifi wifi
     mkdir /data/vendor/wifi/wpa/sockets 0770 wifi wifi
 
-    # Create the directories used by CnE subsystem
-    mkdir /data/connectivity 0771 system system
-    chown system system /data/connectivity
-
-    # Create the directories used by DPM subsystem
-    mkdir /data/dpm 0771 system system
-    chown system system /data/dpm
-
-    mkdir /data/dpm/fdMgr 0771 system system
-    chown system system /data/dpm/fdMgr
-
-    mkdir /data/dpm/nsrm 0771 system system
-    chown system system /data/dpm/nsrm
-
     # Create directory used by audio subsystem
     mkdir /data/misc/audio 0770 audio audio
 
@@ -603,8 +589,8 @@ service energy-awareness /system/vendor/bin/energy-awareness
 
 on property:sys.boot_completed=1
     # set best settings for UX
-    write /sys/block/mmcblk0/queue/read_ahead_kb 512
-    setprop sys.io.scheduler "cfq"
+    write /sys/block/mmcblk0/queue/read_ahead_kb 4096
+    setprop sys.io.scheduler "noop"
 
 # corefile limit and ETB enabling
 on property:persist.debug.trace=1
@@ -667,10 +653,6 @@ service irsc_util /system/vendor/bin/irsc_util "/vendor/etc/sec_config"
     class main
     user root
     oneshot
-
-service dpmd /system/bin/dpmd
-    class late_start
-    socket dpmd stream 660 root system
 
 service rmt_storage /system/vendor/bin/rmt_storage
     class core
