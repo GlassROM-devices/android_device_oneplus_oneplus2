@@ -177,9 +177,6 @@ TARGET_PLATFORM_DEVICE_BASE := /devices/soc.0/
 # Keystore
 TARGET_PROVIDES_KEYMASTER := true
 
-# Lights
-TARGET_PROVIDES_LIBLIGHT := true
-
 # Partitions
 BOARD_BOOTIMAGE_PARTITION_SIZE := 67108864
 BOARD_VENDORIMAGE_FILE_SYSTEM_TYPE := ext4
@@ -255,4 +252,4 @@ TARGET_RECOVERY_FSTAB := $(PLATFORM_PATH)/rootdir/etc/fstab.qcom
 
 
 # inherit from the proprietary version
--include vendor/oneplus/oneplus2/BoardConfigVendor.mk
+include vendor/oneplus/oneplus2/BoardConfigVendor.mk
