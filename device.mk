@@ -131,7 +131,6 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     camera.msm8994 \
     libprotobuf-cpp-full \
-    mm-qcamera-app \
     libmmcamera_interface \
     libmmjpeg_interface \
     libqomx_core \
@@ -255,21 +254,14 @@ PRODUCT_COPY_FILES += \
 # OMX
 PRODUCT_PACKAGES += \
     libc2dcolorconvert \
-    libdashplayer \
-    libextmedia_jni \
     libOmxAacEnc \
     libOmxAmrEnc \
     libOmxCore \
     libOmxEvrcEnc \
     libOmxQcelp13Enc \
-    libOmxSwVencMpeg4 \
-    libOmxSwVencHevc \
     libOmxVdec \
-    libOmxVdecHevc \
     libOmxVenc \
-    libOmxVidcCommon \
-    libstagefrighthw \
-    libstagefright_soft_flacdec
+    libstagefrighthw
 
 # Power
 PRODUCT_PACKAGES += \
