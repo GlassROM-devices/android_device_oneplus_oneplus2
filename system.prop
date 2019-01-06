@@ -55,28 +55,6 @@ persist.data.netmgrd.qos.enable=true
 persist.data.mode=concurrent
 ro.data.large_tcp_window_size=true
 
-# Enhanced 4g tweak
-persist.dbg.ims_volte_enable=1
-persist.dbg.volte_avail_ovr=1
-persist.dbg.vt_avail_ovr=1
-persist.dbg.wfc_avail_ovr=1
-persist.ims.volte=true
-persist.volte_enabled_by_hw=1
-net.lte.volte_call_capable=true
-persist.radio.calls.on.ims=true
-persist.radio.csvt.enabled=false
-persist.radio.jbims=1
-persist.radio.ROTATION_ENABLE=1
-persist.radio.VT_ENABLE=1
-persist.radio.VT_HYBRID_ENABLE=1
-persist.radio.VT_USE_MDM_TIME=0
-persist.radio.vrte_logic=1
-persist.radio.domain.ps=true
-
-# Silence debug
-persist.ims.enableADBLogs=0
-persist.ims.enableDebugLogs=0
-
 # Data Power Manager (DPM)
 persist.dpm.feature=0
 
@@ -169,9 +147,6 @@ net.tethering.noprovisioning=true
 
 # Time services
 persist.timed.enable=true
-
-# Wifi
-persist.data.iwlan.enable=true
 
 # Safetynet
 ro.boot.verifiedbootstate=green
