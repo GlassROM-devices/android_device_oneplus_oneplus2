@@ -53,8 +53,6 @@ on fs
     restorecon_recursive /persist
 
 on init
-    export LD_PRELOAD libshim_atomic.so
-
     start program_bdaddr
 
     # Set permissions for persist partition
@@ -426,7 +424,6 @@ on property:sys.boot_completed=1
     #allow CPUs to go in deeper idle state than C0
     write /sys/module/lpm_levels/parameters/sleep_disabled 0
     swapon_all /fstab.qcom
-    start perfd
     start tfa-sh
     write /dev/kmsg "Boot completed "
 
@@ -465,7 +462,6 @@ service perfd /system/vendor/bin/perfd
     class main
     user root
     group root system readproc
-    disabled
     writepid /dev/cpuset/system-background/tasks
 
 service per_mgr /system/vendor/bin/pm-service

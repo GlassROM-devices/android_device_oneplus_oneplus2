@@ -95,6 +95,9 @@ vidc.debug.perf.mode=2
 vidc.dec.120fps.enabled=1
 vidc.enc.dcvs.extra-buff-count=2
 
+# Memory optimizations
+ro.vendor.qti.sys.fw.bservice_enable=true
+
 # Selinux hardening
 ro.boot.selinux=enforcing
 
