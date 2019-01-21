@@ -70,7 +70,7 @@ TARGET_KERNEL_ARCH := arm64
 TARGET_KERNEL_HEADER_ARCH := arm64
 TARGET_KERNEL_SOURCE := kernel/oneplus/msm8994
 TARGET_KERNEL_CONFIG := haruhi_defconfig
-TARGET_KERNEL_CROSS_COMPILE_PREFIX := /home/Suzu.memeYa/toolchain/bin/aarch64-linux-gnu-
+TARGET_KERNEL_CROSS_COMPILE_PREFIX := /home/suzumiya/mount/toolchain/bin/aarch64-linux-gnu-
 
 # Dexpreopt
 WITH_DEXPREOPT := true
