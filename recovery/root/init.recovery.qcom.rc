@@ -1,5 +1,20 @@
+on boot
+    write /proc/sys/kernel/sched_boost 1
+    write /sys/devices/system/cpu/cpu0/online 1
+    write /sys/devices/system/cpu/cpu1/online 1
+    write /sys/devices/system/cpu/cpu2/online 1
+    write /sys/devices/system/cpu/cpu3/online 1
+    write /sys/devices/system/cpu/cpu4/online 1
+    write /sys/devices/system/cpu/cpu5/online 1
+    write /sys/devices/system/cpu/cpu6/online 1
+    write /sys/devices/system/cpu/cpu7/online 1 
+    write /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor sched
+    write /sys/devices/system/cpu/cpu4/cpufreq/scaling_governor sched
+    write /dev/stune/schedtune.boost 50
+
 on early-init
     mkdir /firmware 0771 system system
+    write /proc/touchpanel/double_tap_enable 1
 
 service sbinqseecomd /sbin/qseecomd
     oneshot
