@@ -120,10 +120,6 @@ TARGET_PROCESS_SDK_VERSION_OVERRIDE := \
 # Charger
 BOARD_CHARGER_DISABLE_INIT_BLANK := true
 
-# Lineage Hardware
-JAVA_SOURCE_OVERLAYS := org.lineageos.hardware|$(PLATFORM_PATH)/lineagehw|**/*.java
-TARGET_TAP_TO_WAKE_NODE := "/proc/touchpanel/double_tap"
-
 # Some Treble stuff
 PRODUCT_VENDOR_MOVE_ENABLED := true
 BOARD_PROPERTY_OVERRIDES_SPLIT_ENABLED := true
@@ -189,6 +185,7 @@ TARGET_USES_MKE2FS := true
 # Power
 TARGET_HAS_NO_WLAN_STATS := true
 TARGET_RPM_SYSTEM_STAT := /d/rpm_stats
+TARGET_TAP_TO_WAKE_NODE := "/proc/touchpanel/double_tap"
 TARGET_USES_INTERACTION_BOOST := true
 
 # QCOM hardware
