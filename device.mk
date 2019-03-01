@@ -273,6 +273,10 @@ PRODUCT_PACKAGES += \
     init.recovery.oneplus2.rc \
     init.safetynet.rc
 
+# Recovery
+PRODUCT_PACKAGES += \
+    librecovery_updater_oneplus2
+
 # RenderScript
 PRODUCT_PACKAGES += \
     android.hardware.renderscript@1.0-impl
