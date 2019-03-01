@@ -10,11 +10,10 @@ allow mm-qcamerad socket_device:sock_file write;
 allow mm-qcamerad permission_service:service_manager find;
 allow mm-qcamerad sensors_socket:sock_file read;
 allow mm-qcamerad self:tcp_socket { create bind setopt };
-allow mm-qcamerad sysfs:file { read open write };
-allow mm-qcamerad sysfs_camera:dir { search };
-allow mm-qcamerad sysfs_camera:file { open read write };
-allow mm-qcamerad sysfs_camera:lnk_file read;
 allow mm-qcamerad camera_prop:file { getattr open read };
 allow mm-qcamerad camera_prop:property_service set;
 binder_call(mm-qcamerad, servicemanager);
 binder_use(mm-qcamerad);
+
+allow mm-qcamerad sysfs_laser:dir search;
+allow mm-qcamerad sysfs_laser:lnk_file read;
