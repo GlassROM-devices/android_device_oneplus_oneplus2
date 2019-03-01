@@ -16,6 +16,7 @@
 
 import hashlib
 import common
+import struct
 import re
 
 def FullOTA_Assertions(info):
@@ -36,3 +37,11 @@ def AddBasebandAssertion(info, input_zip):
       cmd = 'assert(oneplus2.verify_baseband("{}") == "1" || abort("ERROR: This package requires firmware from OOS {} or newer. Please upgrade firmware and retry!"););'
       info.script.AppendExtra(cmd.format(timestamp, firmware_version))
   return
+
+def FullOTA_InstallEnd(info):
+    print "no bootloader.img in target_files; skipping install"
+    print "no radio.img in target_files; skipping install"
+
+def IncrementalOTA_InstallEnd(info):
+    source_bootloader_img = None
+    print "no bootloader.img in target target_files; skipping install"
