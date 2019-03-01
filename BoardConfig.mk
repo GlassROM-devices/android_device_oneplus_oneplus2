@@ -30,9 +30,6 @@ PLATFORM_PATH := device/oneplus/oneplus2
 
 BOARD_VENDOR := oneplus
 
-# Incremental OTA hack
-TARGET_RELEASETOOLS_EXTENSIONS := device/oneplus/oneplus2
-
 # Bootloader
 TARGET_BOOTLOADER_BOARD_NAME := MSM8994
 TARGET_NO_BOOTLOADER := true
