@@ -1,2 +1,0 @@
-allow init sysfs_leds:lnk_file read;
-allow init diag_device:chr_file { open read write ioctl };

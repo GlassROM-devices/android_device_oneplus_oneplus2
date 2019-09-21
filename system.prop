@@ -49,14 +49,17 @@ ro.opa.eligible_device=true
 # CNE
 persist.cne.feature=0
 
+# Dalvik heap
+dalvik.vm.heapstartsize=16m
+dalvik.vm.heaptargetutilization=0.75
+dalvik.vm.heapminfree=2m
+dalvik.vm.heapmaxfree=8m
+
 # Data modules
 ro.use_data_netmgrd=true
 persist.data.netmgrd.qos.enable=true
 persist.data.mode=concurrent
 ro.data.large_tcp_window_size=true
-
-# Data Power Manager (DPM)
-persist.dpm.feature=0
 
 # Dex2oat limits
 dalvik.vm.boot-dex2oat-threads=4
@@ -162,5 +165,5 @@ ro.secure=1
 ro.boot.secboot=enabled
 ro.boot.enable_dm_verity=1
 
-# Privileged permission whitelisting
-ro.control_privapp_permission=enforce
+# Vendor security patch level
+ro.lineage.build.vendor_security_patch=2017-10-01

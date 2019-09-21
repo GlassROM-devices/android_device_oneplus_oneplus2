@@ -32,9 +32,6 @@ on early-init
     mount debugfs debugfs /sys/kernel/debug
     chmod 0755 /sys/kernel/debug
 
-    mkdir /firmware 0771 system system
-    mkdir /bt_firmware 0771 system system
-
     # Setup zram options
     write /sys/block/zram0/comp_algorithm lz4
     write /proc/sys/vm/swappiness 100
@@ -49,14 +46,13 @@ on fs
     wait /dev/block/platform/soc.0/${ro.boot.bootdevice}
     symlink /dev/block/platform/soc.0/${ro.boot.bootdevice} /dev/block/bootdevice
 
-    mount_all /fstab.qcom
+    mount_all /vendor/etc/fstab.qcom
     restorecon_recursive /persist
 
 on init
     start program_bdaddr
 
     # Set permissions for persist partition
-    mkdir /persist 0771 system system
     mkdir /persist/data 0700 system system
 
 
@@ -72,7 +68,6 @@ on init
     write /dev/cpuctl/smsg/cpu.upmigrate_discourage 1
 
     # Add for fpc fingerprints permission
-    chmod -h 777 /dev/qseecom
     chmod 0664 /sys/bus/spi/devices/spi12.0/irq
     chown system system /sys/bus/spi/devices/spi12.0/irq
     chmod 0660 /sys/bus/spi/devices/spi12.0/report_home
@@ -114,9 +109,6 @@ on init
 
     chown system system /proc/tri-state-key/keyCode_bottom
     chmod 0660 /proc/tri-state-key/keyCode_bottom
-
-    # for product mode flashlight
-    chown system system /proc/qcom_flash
 
     # GPU Tuning
     chown root system /sys/class/kgsl/kgsl-3d0/dispatch/inflight
@@ -379,7 +371,7 @@ on property:sys.boot_completed=1
     #allow CPUs to go in deeper idle state than C0
     write /sys/module/lpm_levels/parameters/sleep_disabled 0
     setprop vendor.post_boot.parsed 1
-    swapon_all /fstab.qcom
+    swapon_all /vendor/etc/fstab.qcom
     start perfd
     start tfa-sh
     restart cameraserver
@@ -388,7 +380,7 @@ on property:sys.boot_completed=1
     # Set Memory parameters
     write /sys/module/lowmemorykiller/parameters/enable_adaptive_lmk 1
     write /sys/module/lowmemorykiller/parameters/minfree "18432,23040,27648,32256,55296,80640"
-    write /sys/module/lowmemorykiller/parameters/vmpressure_file_min 81250
+    write /sys/module/lowmemorykiller/parameters/vmpressure_file_min 80640
 
     # Enable schedtune.boost (EAS only)
     write /dev/stune/top-app/schedtune.boost 50
@@ -404,32 +396,33 @@ on property:sys.boot_completed=1
 
 # start services from here
 # start camera server as daemon
-service qcamerasvr /system/vendor/bin/mm-qcamera-daemon
+service qcamerasvr /vendor/bin/mm-qcamera-daemon
     class late_start
     user camera
     group camera system inet input graphics
     writepid /dev/cpuset/camera-daemon/tasks
 
-service qseecomd /system/vendor/bin/qseecomd
+service qseecomd /vendor/bin/qseecomd
     class core
     user root
     group root
     writepid /dev/cpuset/foreground/tasks
 
-service perfd /system/vendor/bin/perfd
+service perfd /vendor/bin/perfd
     class main
     user root
     group root system readproc
     disabled
     writepid /dev/cpuset/system-background/tasks
 
-service per_mgr /system/vendor/bin/pm-service
+service per_mgr /vendor/bin/pm-service
     class late_start
     user system
-    group system net_raw
+    group system
+    ioprio rt 4
     writepid /dev/cpuset/system-background/tasks
 
-service per_proxy /system/vendor/bin/pm-proxy
+service per_proxy /vendor/bin/pm-proxy
     class late_start
     user system
     group system net_raw
@@ -442,7 +435,7 @@ on property:init.svc.per_mgr=running
 on property:sys.shutdown.requested=*
     stop per_proxy
 
-service thermal-engine /system/vendor/bin/thermal-engine
+service thermal-engine /vendor/bin/thermal-engine
     class main
     user root
     socket thermal-send-client stream 0666 system system
@@ -451,13 +444,13 @@ service thermal-engine /system/vendor/bin/thermal-engine
     group root
     writepid /dev/cpuset/system-background/tasks
 
-service time_daemon /system/vendor/bin/time_daemon
+service time_daemon /vendor/bin/time_daemon
     class late_start
     user root
     group root
     writepid /dev/cpuset/system-background/tasks
 
-service adsprpcd /system/vendor/bin/adsprpcd
+service adsprpcd /vendor/bin/adsprpcd
     class main
     user media
     group media
@@ -476,7 +469,7 @@ on property:init.svc.bootanim=running
     write /sys/module/lpm_levels/system/a53/a53-l2-retention/idle_enabled 0
     write /sys/module/lpm_levels/parameters/sleep_disabled 0
 
-service energy-awareness /system/vendor/bin/energy-awareness
+service energy-awareness /vendor/bin/energy-awareness
     class main
     user root
     group system
@@ -532,7 +525,7 @@ on property:bluetooth.startbtsnoop=true
 on property:bluetooth.startbtsnoop=false
     stop btsnoop
 
-service ppd /system/vendor/bin/mm-pp-daemon
+service ppd /vendor/bin/mm-pp-daemon
     class hal
     user system
     socket pps stream 0660 system system
@@ -545,12 +538,12 @@ on property:vold.decrypt=trigger_restart_framework
 on property:persist.env.fastdorm.enabled=true
     setprop persist.radio.data_no_toggle 1
 
-service irsc_util /system/vendor/bin/irsc_util "/vendor/etc/sec_config"
+service irsc_util /vendor/bin/irsc_util "/vendor/etc/sec_config"
     class main
     user root
     oneshot
 
-service rmt_storage /system/vendor/bin/rmt_storage
+service rmt_storage /vendor/bin/rmt_storage
     class core
     user root
     group root system wakelock
@@ -558,7 +551,7 @@ service rmt_storage /system/vendor/bin/rmt_storage
     ioprio rt 0
     writepid /dev/cpuset/system-background/tasks
 
-service rfs_access /system/vendor/bin/rfs_access
+service rfs_access /vendor/bin/rfs_access
     class core
     user root
     group system net_raw
@@ -571,7 +564,7 @@ on property:vendor.wc_transport.start_hci=false
     stop start_hci_filter
 
 # begin qrd patch for bluetoot cts test 2015 06 23 zuoyonghua@oneplus.cn
-service start_hci_filter /system/vendor/bin/wcnss_filter
+service start_hci_filter /vendor/bin/wcnss_filter
     class late_start
     user bluetooth
     group bluetooth oem_2950 system wakelock
@@ -627,13 +620,13 @@ service ftmd /system/bin/logwrapper /system/bin/ftmdaemon
     oneshot
 
 # QMUX must be in multiple groups to support external process connections
-service qmuxd /system/vendor/bin/qmuxd
+service qmuxd /vendor/bin/qmuxd
     class main
     user root
     group radio audio bluetooth gps oem_2950
     writepid /dev/cpuset/system-background/tasks
 
-service netmgrd /system/vendor/bin/netmgrd
+service netmgrd /vendor/bin/netmgrd
     class main
     user root
     group root system wifi wakelock radio inet oem_2950
@@ -645,14 +638,14 @@ service ipacm /vendor/bin/ipacm
     group radio inet
     writepid /dev/cpuset/system-background/tasks
 
-service qti /system/vendor/bin/qti
+service qti /vendor/bin/qti
     class main
     user radio
     group radio net_raw oem_2950 usb net_admin
     disabled
     writepid /dev/cpuset/system-background/tasks
 
-service sensors /system/vendor/bin/sensors.qcom
+service sensors /vendor/bin/sensors.qcom
     class late_start
     user root
     group root system
@@ -695,7 +688,7 @@ service tfa-sh /vendor/bin/init.tfa.sh /etc/silence_short.wav 15 1
     disabled
     oneshot
 
-service wpa_supplicant /system/vendor/bin/hw/wpa_supplicant \
+service wpa_supplicant /vendor/bin/hw/wpa_supplicant \
     -O/data/vendor/wifi/wpa/sockets -puse_p2p_group_interface=1 \
     -g@android:wpa_wlan0
     # we will start as root and wpa_supplicant will switch to user wifi
@@ -715,7 +708,7 @@ service ftm_ffbm /system/bin/ftmdaemon
     disabled
     oneshot
 
-service cnss-daemon /system/vendor/bin/cnss-daemon -n -l
+service cnss-daemon /vendor/bin/cnss-daemon -n -l
     class late_start
     writepid /dev/cpuset/system-background/tasks
 
@@ -785,7 +778,7 @@ on property:sys.qbcharger.enable=true
 on property:sys.qbcharger.enable=false
     stop qbcharger
 
-service msm_irqbalance /system/vendor/bin/msm_irqbalance -f /system/vendor/etc/msm_irqbalance.conf
+service msm_irqbalance /vendor/bin/msm_irqbalance -f /vendor/etc/msm_irqbalance.conf
     socket msm_irqbalance seqpacket 660 root system
     class core
     user root
@@ -793,7 +786,7 @@ service msm_irqbalance /system/vendor/bin/msm_irqbalance -f /system/vendor/etc/m
     disabled
     writepid /dev/cpuset/system-background/tasks
 
-service program_bdaddr /system/vendor/bin/init.program_bdaddr.sh
+service program_bdaddr /vendor/bin/init.program_bdaddr.sh
     user bluetooth
     group bluetooth
     seclabel u:r:bluetooth_loader:s0
