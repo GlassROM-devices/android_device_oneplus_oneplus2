@@ -56,8 +56,6 @@ PRODUCT_COPY_FILES += \
 TARGET_SCREEN_HEIGHT := 1920
 TARGET_SCREEN_WIDTH := 1080
 
-$(call inherit-product, frameworks/native/build/phone-xxxhdpi-4096-dalvik-heap.mk)
-
 # Dexpreopt
 WITH_DEXPREOPT := true
 WITH_DEXPREOPT_PIC := true
@@ -352,12 +350,6 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/audio/libjamesdsp.so:$(TARGET_COPY_OUT_VENDOR)/lib/soundfx/libjamesdsp.so \
     $(LOCAL_PATH)/audio/libv4a_fx.so:$(TARGET_COPY_OUT_VENDOR)/lib/soundfx/libv4a_fx.so
-
-# Opengapps
-GAPPS_VARIANT := stock
-GAPPS_FORCE_PACKAGE_OVERRIDES := true
-GAPPS_EXCLUDED_PACKAGES := GoogleCamera
-$(call inherit-product, vendor/opengapps/build/opengapps-packages.mk)
 
 # setup dm-verity configs
 PRODUCT_SYSTEM_VERITY_PARTITION := /dev/block/platform/soc.0/f9824900.sdhci/by-name/system
