@@ -185,6 +185,7 @@ TARGET_EXFAT_DRIVER := sdfat
 TARGET_HAS_NO_WLAN_STATS := true
 TARGET_RPM_SYSTEM_STAT := /d/rpm_stats
 TARGET_TAP_TO_WAKE_NODE := "/proc/touchpanel/double_tap"
+TARGET_USES_INTERACTION_BOOST := true
 
 # QCOM hardware
 BOARD_USES_QCOM_HARDWARE := true
