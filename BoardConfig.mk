@@ -190,18 +190,6 @@ TARGET_USES_INTERACTION_BOOST := true
 # QCOM hardware
 BOARD_USES_QCOM_HARDWARE := true
 
-# RRO
-PRODUCT_ENFORCE_RRO_TARGETS := \
-   Bluetooth \
-   Settings \
-   SettingsProvider \
-   SystemUI \
-   framework-res \
-   Dialer \
-   CarrierConfig \
-   Mms \
-   CellBroadcastReceiver
-
 # RIL
 PROTOBUF_SUPPORTED := true
 TARGET_RIL_VARIANT := caf
