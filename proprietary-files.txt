@@ -33,7 +33,7 @@ vendor/lib64/libaudcal.so
 vendor/lib64/libhwdaphal.so
 
 # Audio amplifier calibration sound
-etc/silence_short.wav
+etc/silence_short.wav:vendor/etc/silence_short.wav
 
 # Bluetooth - OxygenOS 3.6.0
 bin/btnvtool:vendor/bin/btnvtool
@@ -337,11 +337,10 @@ vendor/etc/perf-profile5.conf
 vendor/lib/libqti-perfd-client.so
 vendor/lib64/libqti-perfd-client.so
 
-# Peripheral manager - OxygenOS 3.6.0
+# Peripheral manager - OxygenOS 3.6.0 + Cyanogen OS 13.1.5
 bin/pm-proxy:vendor/bin/pm-proxy
 bin/pm-service:vendor/bin/pm-service
-vendor/lib/libperipheral_client.so
-vendor/lib64/libperipheral_client.so
+vendor/lib64/libperipheral_client.so|a2d0d11de098d1b3d02218b087868b4fbc2ba466
 
 # Postprocessing - OxygenOS 3.6.0
 bin/mm-pp-daemon:vendor/bin/mm-pp-daemon
@@ -400,9 +399,8 @@ vendor/lib64/libsmemlog.so
 -app/QtiTelephonyService/QtiTelephonyService.apk|880d5c85178c4b3dd809a64e25f6108437c136fc
 bin/netmgrd:vendor/bin/netmgrd|6ca8f2e16d3078848808787c9a81cfc78dc27c58
 bin/qmuxd:vendor/bin/qmuxd
-bin/radish:vendor/bin/radish
 bin/rfs_access:vendor/bin/rfs_access
-bin/rmt_storage:vendor/bin/rmt_storage
+vendor/bin/rmt_storage|59105701d95dec01f9028f86211630b3c45505fb
 etc/data/dsi_config.xml
 etc/data/netmgr_config.xml
 etc/data/qmi_config.xml

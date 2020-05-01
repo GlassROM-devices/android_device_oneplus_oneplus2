@@ -106,8 +106,7 @@
 /dev/video*               0660   system     camera
 /dev/media*               0660   system     camera
 /dev/v4l-subdev*          0660   system     camera
-#changhua.li modify from 660 to 666 for alipay use tz
-/dev/qseecom              0666   system     drmrpc
+/dev/qseecom              0660   system     drmrpc
 /dev/qce                  0660   system     drmrpc
 /dev/seemplog             0660   system     system
 /dev/pft                  0660   system     drmrpc
@@ -150,6 +149,7 @@
 /dev/msm_hweffects        0660   system     audio
 /dev/msm_cad              0660   system     audio
 /dev/msm_fm               0660   system     audio
+/dev/msm_mp3*             0660   system     audio
 /dev/msm_mvs              0660   system     audio
 /dev/msm_pcm_lp_dec       0660   system     audio
 /dev/msm_preproc_ctl      0660   system     audio

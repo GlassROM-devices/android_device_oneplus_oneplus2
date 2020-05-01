@@ -21,10 +21,12 @@ on charger
     write /sys/module/msm_thermal/core_control/enabled 1
     write /sys/module/lpm_levels/parameters/sleep_disabled 0
 
-service charger /charger
+service charger /system/bin/charger
     class charger
-    group log
-    seclabel u:r:healthd:s0
+    user system
+    group system graphics input
+    capabilities SYS_BOOT
+    seclabel u:r:charger:s0
     writepid /dev/cpuset/system-background/tasks
 
 on property:dev.bootcomplete=1
